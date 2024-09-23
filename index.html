@@ -28,6 +28,7 @@
             background-color: var(--sky-blue);
             color: var(--black);
             line-height: 1.6;
+		padding-top: 60px;
         }
 
         .container {
@@ -36,9 +37,13 @@
             padding: 0 20px;
         }
 
-        header {
-    background-color: rgba(0, 0, 0, 0.8); /* Adjust this to match your desired header background */
-    padding: 10px 0; /* Add some padding to give the logo some breathing room */
+        header {position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px 0;
+            z-index: 1000;
 }
 
         nav {
@@ -69,7 +74,6 @@
         }
 
         .hero {
-    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -77,6 +81,8 @@
     background-size: cover;
     background-position: center;
     background-repeat: repeat;
+		height: calc(100vh - 60px); /* Subtract the header height */
+            margin-top: 60px;
 }
 
         .hero-content h1 {
