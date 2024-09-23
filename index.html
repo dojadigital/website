@@ -29,6 +29,8 @@
             color: var(--black);
             line-height: 1.6;
 		padding-top: 60px;
+		margin: 0;
+            padding: 0;
         }
 
         .container {
@@ -37,7 +39,8 @@
             padding: 0 20px;
         }
 
-        header {position: fixed;
+        header {
+		position: fixed;
             top: 0;
             left: 0;
             right: 0;
@@ -55,7 +58,8 @@
 
         .nav-links {
             display: flex;
-            list-style: none;
+            align-items: center;
+            height: 100%;
         }
 
         .nav-links li {
@@ -74,15 +78,10 @@
         }
 
         .hero {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-size: cover;
-    background-position: center;
-    background-repeat: repeat;
-		height: calc(100vh - 60px); /* Subtract the header height */
-            margin-top: 60px;
+    height: 100vh;
+            margin-top: 0;
+            padding-top: 60px; /* Add padding equal to header height */
+            box-sizing: border-box; 
 }
 
         .hero-content h1 {
