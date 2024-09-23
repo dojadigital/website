@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doja - Innovative & Tailored Digital Solutions</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        :root {
+            --black: #000000;
+            --yellow: #FFD700;
+            --light-blue: #87CEFA;
+            --sky-blue: #E6F3FF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--sky-blue);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+    background-color: rgba(0, 0, 0, 0.8); /* Adjust this to match your desired header background */
+    padding: 10px 0; /* Add some padding to give the logo some breathing room */
+}
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--light-blue);
+        }
+
+        .hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+}
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--yellow);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--light-blue);
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--yellow);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--black);
+        }
+
+        
+
+        .service-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        
+
+        .service-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .about-text {
+            flex: 1;
+            padding-right: 50px;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-group textarea {
+            height: 150px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        .slide-in-left {
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .slide-in-right {
+            animation: slideInRight 1s ease-out;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px 0;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .feature-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--light-blue);
+            font-weight: bold;
+        }
+		
+		.service-category {
+            margin-bottom: 40px;
+        }
+
+        .service-category h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--black);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--black);
+        }
+
+        .service-list {
+            list-style-type: none;
+            padding-left: 0;
+            flex-grow: 1;
+        }
+
+        .service-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .service-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--light-blue);
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+		.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--yellow);
+    text-decoration: none;
+}
+
+.logo-image {
+    height: 35px; /* Adjust this value to fit your design */
+    width: auto;
+    object-fit: contain; /* This ensures the entire logo is visible */
+    margin-right: 10px; /* Space between logo and any text, if needed */
+}
+
+/* If you want to keep the text next to the logo, you can add: */
+.logo-text {
+    color: var(--yellow);
+    font-size: 2rem;
+    font-weight: 700;
+}
+@media (max-width: 768px) {
+    .logo-image {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+}
+    </style>
+</head>
+<body>
+    <header>
+    <nav class="container">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#solutions">Our Services</a></li>
+                <li><a href="#services">Consultation</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+		<section id="home" class="hero">
+			<div class="hero-content fade-in">
+				<h1>DOJA</h1>
+				<p>Innovative & Tailored Digital Solutions</p>
+				<a href="#solutions" class="btn">Explore Our Solutions</a>
+			</div>
+		</section>
+
+        <section id="solutions" class="container">
+            <h2>Our Solutions</h2>
+            <div class="service-grid">
+                <div class="service-card fade-in">
+                    <img id="solution1-image" src="placeholder.jpg" alt="EPCIS NINJA">
+                    <h3>EPCIS NINJA</h3>
+                    <ul class="feature-list">
+                        <li>Converts EPCIS files to Tatmeen-compatible CSV</li>
+                        <li>Enables users to analyze EPCIS files efficiently</li>
+                        <li>Visualizes aggregation hierarchies for easy comprehension</li>
+                    </ul>
+                    <a href="https://shorturl.at/gk8lU" class="btn">Download EPCIS Ninja Version 1.2.0 (Demo)</a>
+                </div>
+                <div class="service-card fade-in">
+                    <img id="solution2-image" src="placeholder.jpg" alt="SMART CAPTURE APPLICATION">
+                    <h3>SMART CAPTURE APPLICATION</h3>
+                    <ul class="feature-list">
+                        <li>Facilitates rapid serial number capture via smartphone camera</li>
+                        <li>Exports data in various formats (System API, Excel, CSV)</li>
+                        <li>Quick capture of items and conversion to Tatmeen CSV for shipment reporting</li>
+                        <li>Bulk capturing of many serials by easily moving your mobile camera</li>
+                        <li>Easy way to commission your shipment to Tatmeen</li>
+                        <li>Enhance your operation by digitalizing your process</li>
+                    </ul>
+                    <a href="#contact" class="btn">Learn More</a>
+                </div>
+                <div class="service-card fade-in">
+                    <img id="pos-image" src="placeholder.jpg" alt="SMART CAPTURE APPLICATION">
+                    <h3>Point of Sale Interceptor</h3>
+                    <ul class="feature-list">
+                        <li>Works side by side with your existing POS without integration or interruption.</li>
+                        <li>Essential tool that streamlines pharmacy operations. </li>
+                        <li>Allows you to seamlessly scan GS1 DataMatrix codes for reporting to the national compliance platform.</li>
+                        <li>Ensuring that your point-of-sale (POS) system reflects accurate and up-to-date information.</li>
+                    </ul>
+                    <a href="#contact" class="btn">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="container">
+            <h2>Consultations</h2>
+            
+            <div class="service-grid">
+                <div class="service-card fade-in">
+                    <h3>Warehouse Design</h3>
+                    <ul class="service-list">
+                        <li>Design warehouse Structure</li>
+                        <li>Design warehouse Areas&Location</li>
+                        <li>Setting Warehouse SOP (Standard operating procedure)</li>
+                        <li>Set a customized warehouse process</li>
+                    </ul>
+					<a href="#contact" class="btn">Get Started</a>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <h3>Warehouse Solutions</h3>
+                    <ul class="service-list">
+                        <li>Increase storage capacity</li>
+                        <li>Warehouse productivity improvement</li>
+                        <li>Decrease the warehouse cost and increase the operations output</li>
+                        <li>Prepare business requirement for a warehouse software</li>
+                        <li>Validating software warehouse against the business requirements</li>
+                        <li>Testing a warehouse software</li>
+                    </ul>
+					<a href="#contact" class="btn">Get Started</a>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <h3>Technology Solutions</h3>
+                    <ul class="service-list">
+                        <li>Design a digitalized solution for the warehouse operation</li>
+                        <li>Create a customize warehouse management solution</li>
+                        <li>Help in issues that face reporting to the national traceability platforms (tatmeen &RSD)</li>
+                        <li>Train and help in changing the mindset of the users to use national traceability platforms (tatmeen &RSD)</li>
+                    </ul>
+					<a href="#contact" class="btn">Get Started</a>
+                </div>
+            </div>
+        </section>
+
+		<section id="about" class="container">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <div class="about-text slide-in-left">
+                    <p>Doja is a startup with extensive experience for the co-founders in track and trace technologies across the Middle East. We specialize in providing tailored solutions to address the unique challenges in our customers' supply chain operations.</p>
+                    <a href="#contact" class="btn">Get in Touch</a>
+                </div>
+                <div class="about-image slide-in-right">
+                    <img src="https://picsum.photos/500/300" alt="Doja Team">
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="container">
+    <h2>Contact Us</h2>
+    <form class="contact-form fade-in" id="contactForm">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn">Send Message</button>
+    </form>
+</section>
+    
+		
+	</main>
+
+    <footer>
+        <div class="container">
+            <p>For more information or to discuss how we can optimize your supply chain operations, please contact:</p>
+            <p>Doja Sales Email: <a href="mailto:sales@doja.digital">sales@doja.digital</a></p>
+            <p>&copy; 2024 Doja. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+	(function(){
+		emailjs.init("w1jXu63jC-OazeAXl"); // Add your EmailJS user ID here
+	})();
+    const PEXELS_API_KEY = 'cMN5s1iHUNE8LiwsM7g58cMnpHRUEhWq8xR4cDpfpEGqiY1sJYTJNAdC'; // Replace with your actual API key
+    
+    function fetchPexelsImage(query, elementId) {
+        const url = `https://api.pexels.com/v1/search?query=${query}&per_page=1`;
+        
+        fetch(url, {
+            headers: {
+                Authorization: PEXELS_API_KEY
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.photos && data.photos.length > 0) {
+                const imageUrl = data.photos[0].src.large2x;
+                if (elementId === 'hero-image') {
+                    document.querySelector('.hero').style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${imageUrl}')`;
+                } else {
+                    document.getElementById(elementId).src = imageUrl;
+                }
+            }
+        })
+        .catch(error => console.error('Error fetching image:', error));
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        fetchPexelsImage('night sky', 'hero-image');
+        fetchPexelsImage('data analysis', 'solution1-image');
+        fetchPexelsImage('barcode scanning', 'solution2-image');
+        fetchPexelsImage('technical consultation', 'consultation-image');
+        fetchPexelsImage('point of sale', 'pos-image');
+
+        // Contact form submission
+        const contactForm = document.getElementById('contactForm');
+    
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        
+        // Send email using EmailJS
+        emailjs.send("default_service", "template_3ebu5du", {
+            from_name: name,
+            from_email: email,
+            message: message,
+            to_email: "sales@doja.digital"
+        }).then(
+            function(response) {
+                console.log("Email sent successfully", response);
+                alert("Your message has been sent successfully!");
+                contactForm.reset(); // Clear the form
+            },
+            function(error) {
+                console.log("Failed to send email", error);
+                alert("Failed to send email. Please try again later.");
+            }
+        );
+    });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                const headerOffset = 70; // Adjust this value based on your header height
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateX(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(elem => {
+            elem.style.opacity = 0;
+            elem.style.transition = 'opacity 0.5s, transform 0.5s';
+            observer.observe(elem);
+        });
+    });
+</script>
+</body>
+</html>
